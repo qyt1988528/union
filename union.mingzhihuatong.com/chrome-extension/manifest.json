@@ -1,0 +1,30 @@
+{
+    "name" : "MZ广告数据提取插件",
+    "manifest_version": 2,
+    "version": "1.0",
+    "description": "我的第一个Chrome扩展",
+    "icons": {
+    },
+    "permissions": [
+        "background", "notifications", "activeTab", "tabs", "http://*/"
+    ],
+    "browser_action": {
+        "default_icon": {
+        },
+        "default_title": "MZ广告数据提取插件",
+        "default_popup": "popup.html"
+    },
+
+    "content_security_policy": "script-src 'self' https://*.zhantai.com; object-src 'self'",
+
+    "content_scripts": [
+        {
+            "matches": ["*://*/"],
+            "js": ["js/jquery.js"]
+        }
+    ],
+    "background": {
+        "persistent": true,
+        "page": "background.html"
+    }
+}
